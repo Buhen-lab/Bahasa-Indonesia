@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petualangan Bahasa Indonesia Kelas 1 SD/MI</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Fredoka & Nunito for child-friendly typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#3B82F6',
+                            purple: '#8B5CF6',
+                            pink: '#EC4899',
+                            yellow: '#F59E0B',
+                            green: '#10B981',
+                            teal: '#14B8A6'
+                        }
+                    },
+                    fontFamily: {
+                        fredoka: ['Fredoka', 'sans-serif'],
+                        nunito: ['Nunito', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #e0f2fe 0%, #f0fdf4 50%, #fef3c7 100%);
+            min-height: 100vh;
+            user-select: none;
+        }
+
+        h1, h2, h3, .font-heading {
+            font-family: 'Fredoka', cursive, sans-serif;
+        }
+
+        .bounce-gentle {
+            animation: bounceGentle 2s infinite ease-in-out;
+        }
+
+        @keyframes bounceGentle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .pulse-btn {
+            animation: pulseBtn 2s infinite;
+        }
+
+        @keyframes pulseBtn {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.5); }
+            70% { transform: scale(1.03); box-shadow: 0 0 0 12px rgba(59, 130, 246, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        }
+
+        .tab-btn.active {
+            background-color: #3B82F6;
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Certificate Print styling */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #certificateArea, #certificateArea * {
+                visibility: visible;
+            }
+            #certificateArea {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen text-slate-800">
+
+    <header class="bg-white/80 backdrop-blur-md border-b-4 border-yellow-300 sticky top-0 z-40 px-4 py-3 shadow-sm">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-blue-500 to-purple-500 flex items-center justify-center text-white text-xl font-bold shadow-md">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg md:text-xl font-bold text-slate-800 leading-tight">PETUALANGAN BAHASA INDONESIA</h1>
+                    <p class="text-xs text-blue-600 font-bold">Kelas 1 SD/MI • Kurikulum Merdeka</p>
+                </div>
+            </div>
+
+            <!-- Global Audio & Voice Toggles -->
+            <div class="flex items-center gap-2">
+                <button id="btnVoiceToggle" onclick="toggleVoice()" class="p-2.5 px-3 rounded-xl bg-purple-100 hover:bg-purple-200 text-purple-700 font-bold text-xs sm:text-sm flex items-center gap-2 transition">
+                    <i id="iconVoice" class="fa-solid fa-volume-high text-base"></i>
+                    <span class="hidden sm:inline" id="txtVoice">Suara: ON</span>
+                </button>
+                <button id="btnBgmToggle" onclick="toggleBGM()" class="p-2.5 px-3 rounded-xl bg-pink-100 hover:bg-pink-200 text-pink-700 font-bold text-xs sm:text-sm flex items-center gap-2 transition">
+                    <i id="iconBgm" class="fa-solid fa-music text-base"></i>
+                    <span class="hidden sm:inline" id="txtBgm">Musik: ON</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow p-4 md:p-6 flex items-center justify-center max-w-5xl mx-auto w-full">
+
+        <!-- ================= 1. HALAMAN AWAL (WELCOME SCREEN) ================= -->
+        <section id="screenWelcome" class="w-full glass-card rounded-3xl p-6 md:p-10 text-center max-w-2xl mx-auto bounce-gentle border-4 border-blue-200">
+            <div class="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-tr from-yellow-300 via-orange-400 to-red-400 rounded-full mb-4 shadow-lg text-white text-4xl border-4 border-white">
+                📚✨
+            </div>
+            
+            <h2 class="text-2xl md:text-4xl font-extrabold text-blue-700 mb-2 font-heading">PETUALANGAN BAHASA INDONESIA</h2>
+            <p class="text-base md:text-lg text-slate-600 font-semibold mb-6">Belajar Membaca, Menulis, dan Menyimak dengan Ceria!</p>
+
+            <!-- Playful Icons Decorative Row -->
+            <div class="flex justify-center gap-4 text-3xl mb-6">
+                <span class="p-3 bg-blue-100 rounded-2xl shadow-sm">🅰️</span>
+                <span class="p-3 bg-green-100 rounded-2xl shadow-sm">🔊</span>
+                <span class="p-3 bg-yellow-100 rounded-2xl shadow-sm">📖</span>
+                <span class="p-3 bg-pink-100 rounded-2xl shadow-sm">✏️</span>
+            </div>
+
+            <!-- Input Student Name -->
+            <div class="bg-blue-50/80 p-5 rounded-2xl border-2 border-blue-200 mb-6 text-left max-w-md mx-auto">
+                <label for="studentName" class="block text-sm font-bold text-blue-900 mb-2">
+                    <i class="fa-solid fa-user-pen mr-1"></i> Masukkan Nama Kamu:
+                </label>
+                <input type="text" id="studentName" placeholder="Contoh: Budi / Ani" 
+                       class="w-full px-4 py-3 rounded-xl border-2 border-blue-300 focus:border-blue-500 focus:outline-none text-lg font-bold text-slate-800 text-center bg-white shadow-inner">
+            </div>
+
+            <!-- Greeting Modal/Message -->
+            <div id="greetingContainer" class="hidden mb-6 p-4 bg-green-100 border-2 border-green-400 rounded-2xl text-green-800 font-bold text-lg animate-bounce">
+                <p id="greetingText"></p>
+            </div>
+
+            <button onclick="submitNameAndStart()" class="pulse-btn w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-extrabold text-xl rounded-2xl shadow-xl transition-all transform hover:scale-105 border-b-4 border-indigo-800 flex items-center justify-center gap-3 mx-auto">
+                <span>🚀 MULAI BELAJAR</span>
+            </button>
+        </section>
+
+        <!-- ================= 2. PETUNJUK & PILIH AKSI ================= -->
+        <section id="screenMenu" class="hidden w-full max-w-4xl glass-card rounded-3xl p-6 md:p-8 border-4 border-purple-200">
+            <div class="text-center mb-6">
+                <span class="bg-purple-100 text-purple-700 px-4 py-1.5 rounded-full font-bold text-sm">Petunjuk Permainan</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mt-2 font-heading">Halo, <span class="studentNameSpan text-blue-600">Siswa</span>! 👋</h2>
+                <p class="text-slate-600 mt-1">Pelajari materi terlebih dahulu sebelum memulai kuis 50 soal!</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                <div class="bg-amber-50 p-5 rounded-2xl border-2 border-amber-200 flex items-start gap-4">
+                    <div class="text-3xl p-3 bg-amber-200 text-amber-800 rounded-xl">📖</div>
+                    <div>
+                        <h3 class="font-bold text-amber-900 text-lg font-heading">1. Baca Materi</h3>
+                        <p class="text-sm text-amber-800">Pelajari Bab 1 sampai Bab 8 tentang bunyi, suku kata, kata pendek, dan kalimat.</p>
+                    </div>
+                </div>
+
+                <div class="bg-emerald-50 p-5 rounded-2xl border-2 border-emerald-200 flex items-start gap-4">
+                    <div class="text-3xl p-3 bg-emerald-200 text-emerald-800 rounded-xl">✍️</div>
+                    <div>
+                        <h3 class="font-bold text-emerald-900 text-lg font-heading">2. Kerjakan 50 Kuis</h3>
+                        <p class="text-sm text-emerald-800">Jawab soal-soal seru! Kamu bisa kembali ke materi kapan saja tanpa kehilangan skor.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="showMaterialsScreen()" class="px-6 py-4 bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-extrabold text-lg rounded-2xl shadow-lg border-b-4 border-yellow-600 flex items-center justify-center gap-2 transition">
+                    <i class="fa-solid fa-book-bookmark text-xl"></i> 📚 BACA MATERI LENGKAP
+                </button>
+                <button onclick="startQuizDirectly()" class="px-6 py-4 bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-lg rounded-2xl shadow-lg border-b-4 border-blue-800 flex items-center justify-center gap-2 transition">
+                    <i class="fa-solid fa-gamepad text-xl"></i> 🎯 MULAI KUIS 50 SOAL
+                </button>
+            </div>
+        </section>
+
+        <!-- ================= 3. HALAMAN MATERI PEMBELAJARAN ================= -->
+        <section id="screenMaterials" class="hidden w-full glass-card rounded-3xl p-4 sm:p-6 md:p-8 border-4 border-yellow-200 max-w-4xl">
+            <!-- Header section of Materials -->
+            <div class="flex flex-col sm:flex-row justify-between items-center pb-4 mb-4 border-b-2 border-slate-200 gap-3">
+                <div>
+                    <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full font-bold text-xs">Materi Pembelajaran</span>
+                    <h2 class="text-2xl font-bold text-slate-800 font-heading">Bahasa Indonesia Kelas 1 SD</h2>
+                </div>
+                <!-- Action button back to quiz if active, or back to menu -->
+                <div id="materialNavButtons">
+                    <button id="btnReturnToQuiz" onclick="resumeQuizFromMaterials()" class="hidden px-5 py-2.5 bg-green-500 hover:bg-green-600 text-white font-extrabold rounded-xl shadow border-b-4 border-green-700 text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-rotate-left"></i> ↩ KEMBALI KE KUIS
+                    </button>
+                    <button id="btnBackToMenu" onclick="showScreen('screenMenu')" class="px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold rounded-xl text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-arrow-left"></i> Kembali ke Menu
+                    </button>
+                </div>
+            </div>
+
+            <!-- Chapter Navigation Tabs (Horizontal Scrollable) -->
+            <div class="flex overflow-x-auto gap-2 pb-3 mb-4 scrollbar-thin" id="chapterTabs">
+                <!-- Dynamic tabs filled via JS -->
+            </div>
+
+            <!-- Chapter Content View Container -->
+            <div id="materialContent" class="bg-white/90 p-5 sm:p-6 rounded-2xl border-2 border-blue-100 shadow-inner min-h-[350px]">
+                <!-- Content injected dynamically via JS -->
+            </div>
+        </section>
+
+        <!-- ================= 4. HALAMAN KUIS 50 SOAL ================= -->
+        <section id="screenQuiz" class="hidden w-full max-w-3xl glass-card rounded-3xl p-4 sm:p-6 md:p-8 border-4 border-blue-300">
+            <!-- Quiz Info Header -->
+            <div class="flex flex-wrap justify-between items-center gap-3 pb-4 mb-4 border-b-2 border-blue-100">
+                <div class="flex items-center gap-3">
+                    <span class="px-3 py-1.5 bg-blue-600 text-white font-extrabold rounded-xl text-xs sm:text-sm" id="badgeQuestionNumber">
+                        SOAL 1 DARI 50
+                    </span>
+                    <span class="text-sm font-bold text-slate-600">
+                        Nama: <span class="studentNameSpan text-blue-700">Siswa</span>
+                    </span>
+                </div>
+                
+                <div class="flex items-center gap-3">
+                    <div class="bg-yellow-100 border border-yellow-300 px-3 py-1 rounded-xl text-yellow-800 font-black text-sm">
+                        ⭐ Skor: <span id="quizScore">0</span>
+                    </div>
+                    <!-- Persistent Return to Materials Button -->
+                    <button onclick="openMaterialsFromQuiz()" class="px-3 py-1.5 bg-purple-100 hover:bg-purple-200 text-purple-700 font-bold rounded-xl text-xs sm:text-sm border border-purple-300 transition flex items-center gap-1">
+                        <i class="fa-solid fa-book"></i> 📚 KEMBALI KE MATERI
+                    </button>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="w-full bg-slate-200 rounded-full h-3 mb-6 overflow-hidden border border-slate-300">
+                <div id="quizProgressBar" class="bg-gradient-to-r from-blue-500 to-indigo-600 h-full w-0 transition-all duration-300"></div>
+            </div>
+
+            <!-- Question Box -->
+            <div class="mb-6">
+                <div class="inline-block px-3 py-1 bg-indigo-50 border border-indigo-200 rounded-lg text-xs font-bold text-indigo-600 mb-2" id="questionChapterBadge">
+                    Bab 1: Bunyi Apa?
+                </div>
+                <h3 id="questionText" class="text-lg sm:text-xl font-bold text-slate-800 leading-relaxed font-heading">
+                    Loading soal...
+                </h3>
+            </div>
+
+            <!-- Options Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6" id="optionsContainer">
+                <!-- Option buttons generated via JS -->
+            </div>
+
+            <!-- Feedback & Explanation Panel (Shown after answer) -->
+            <div id="feedbackBox" class="hidden p-4 sm:p-5 rounded-2xl border-2 mb-6 transition-all">
+                <div class="flex items-center gap-3 mb-2">
+                    <div id="feedbackIcon" class="text-2xl sm:text-3xl"></div>
+                    <div id="feedbackTitle" class="font-extrabold text-lg sm:text-xl font-heading"></div>
+                </div>
+                <p id="feedbackMessage" class="text-sm sm:text-base font-semibold mb-2"></p>
+                <div id="feedbackExplanation" class="bg-white/80 p-3 sm:p-4 rounded-xl text-xs sm:text-sm text-slate-700 border border-slate-200 font-mono">
+                </div>
+
+                <button id="btnNextQuestion" onclick="nextQuestion()" class="mt-4 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-base rounded-xl shadow-md border-b-4 border-blue-800 flex items-center justify-center gap-2 transition w-full sm:w-auto ml-auto">
+                    <span>Soal Berikutnya</span> <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- ================= 5. HASIL AKHIR & SERTIFIKAT ================= -->
+        <section id="screenResult" class="hidden w-full max-w-3xl glass-card rounded-3xl p-6 md:p-10 text-center border-4 border-emerald-300">
+            <div class="text-5xl mb-3">🎉🏆🎉</div>
+            <h2 class="text-3xl font-extrabold text-slate-800 font-heading mb-1">KUIS SELESAI!</h2>
+            <p class="text-lg font-bold text-emerald-600 mb-6">Selamat, <span class="studentNameSpan">Siswa</span>!</p>
+
+            <!-- Score Cards -->
+            <div class="grid grid-cols-3 gap-3 max-w-md mx-auto mb-8">
+                <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200">
+                    <span class="block text-xs text-amber-700 font-bold">TOTAL SKOR</span>
+                    <span id="finalScore" class="text-2xl sm:text-3xl font-black text-amber-600">0</span>
+                    <span class="text-xs text-slate-500 font-bold">/ 1000</span>
+                </div>
+                <div class="bg-green-50 p-4 rounded-2xl border border-green-200">
+                    <span class="block text-xs text-green-700 font-bold">BENAR</span>
+                    <span id="finalCorrect" class="text-2xl sm:text-3xl font-black text-green-600">0</span>
+                    <span class="text-xs text-slate-500 font-bold">Soal</span>
+                </div>
+                <div class="bg-red-50 p-4 rounded-2xl border border-red-200">
+                    <span class="block text-xs text-red-700 font-bold">SALAH</span>
+                    <span id="finalIncorrect" class="text-2xl sm:text-3xl font-black text-red-600">0</span>
+                    <span class="text-xs text-slate-500 font-bold">Soal</span>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+                <button onclick="showCertificate()" class="px-6 py-3.5 bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-slate-900 font-extrabold text-base rounded-2xl shadow-lg border-b-4 border-amber-700 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-trophy text-lg"></i> 🏆 LIHAT SERTIFIKAT
+                </button>
+                <button onclick="restartQuiz()" class="px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-base rounded-2xl shadow-lg border-b-4 border-blue-800 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-rotate-right text-lg"></i> 🔄 ULANGI KUIS
+                </button>
+            </div>
+
+            <!-- Certificate Overlay Modal -->
+            <div id="certificateModal" class="hidden fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto">
+                <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-2xl w-full border-8 border-yellow-400 shadow-2xl text-slate-800 relative my-8" id="certificateArea">
+                    <!-- Certificate Header -->
+                    <div class="border-4 border-dashed border-amber-300 p-6 sm:p-8 rounded-2xl bg-gradient-to-b from-amber-50/50 to-white text-center">
+                        <div class="text-4xl mb-2">📜⭐📜</div>
+                        <h3 class="text-2xl sm:text-3xl font-black text-amber-800 font-heading tracking-wider">SERTIFIKAT PENGHARGAAN</h3>
+                        <p class="text-xs sm:text-sm font-bold text-amber-600 tracking-widest uppercase mt-1">Petualangan Bahasa Indonesia Kelas 1 SD/MI</p>
+
+                        <div class="my-6">
+                            <p class="text-xs text-slate-500 font-bold uppercase">Diberikan Kepada:</p>
+                            <h4 id="certName" class="text-2xl sm:text-4xl font-extrabold text-blue-700 my-2 font-heading underline decoration-yellow-400">
+                                [NAMA SISWA]
+                            </h4>
+                            <p class="text-xs sm:text-sm text-slate-600 max-w-md mx-auto">
+                                Atas keberhasilannya dalam menyelesaikan seluruh rangkaian tantangan kuis 50 soal Bahasa Indonesia Kelas 1.
+                            </p>
+                        </div>
+
+                        <!-- Score info in certificate -->
+                        <div class="flex justify-center gap-6 my-4 bg-yellow-100/60 p-3 rounded-xl max-w-xs mx-auto text-sm font-bold border border-yellow-300">
+                            <div>
+                                <span class="block text-xs text-slate-500">SKOR AKHIR</span>
+                                <span id="certScore" class="text-blue-700 text-lg font-black">1000 / 1000</span>
+                            </div>
+                            <div class="border-l border-yellow-300 pl-6">
+                                <span class="block text-xs text-slate-500">JAWABAN BENAR</span>
+                                <span id="certCorrect" class="text-green-700 text-lg font-black">50 / 50</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 text-xs text-slate-500 font-semibold flex justify-between items-end pt-4 border-t border-amber-200">
+                            <div>
+                                <p>Tanggal Lulus:</p>
+                                <p id="certDate" class="font-bold text-slate-700">-</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-bold text-slate-700">Tim Pengembang</p>
+                                <p class="text-xs text-blue-600 font-bold">Giga Inovation</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certificate Action buttons -->
+                    <div class="mt-6 flex flex-wrap justify-center gap-3 print:hidden">
+                        <button onclick="window.print()" class="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-print"></i> Cetak Sertifikat
+                        </button>
+                        <button onclick="closeCertificate()" class="px-5 py-2.5 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold rounded-xl text-sm">
+                            Tutup
+                        </button>
+                    </div>
+
+                    <!-- Required Developer info inside certificate -->
+                    <div class="mt-4 text-[10px] text-center text-slate-400 font-mono">
+                        Pengembang: Giga Inovation | 081329200985
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Mandatory Footer Developer Info -->
+    <footer class="bg-white/80 backdrop-blur-md border-t border-slate-200 py-3 text-center text-xs font-semibold text-slate-500">
+        <p>Pengembang: Giga Inovation | 081329200985</p>
+    </footer>
+
+    <script>
+        /* =================================================================
+           1. DATA MATERI PEMBELAJARAN (BAB 1 - BAB 8 BAHASA INDONESIA KELAS 1)
+           ================================================================= */
+        const materialsData = [
+            {
+                id: 1,
+                title: "Bab 1: Bunyi Apa?",
+                badge: "Bab 1",
+                icon: "🔊",
+                summary: "Mengenal berbagai macam bunyi di sekitar kita dan belajar suku kata berawalan B.",
+                content: `
+                    <div class="space-y-4">
+                        <div class="bg-blue-50 p-4 rounded-xl border border-blue-200">
+                            <h4 class="font-bold text-blue-900 text-base mb-1">1. Macam-Macam Bunyi</h4>
+                            <p class="text-sm text-slate-700">Di sekitar kita ada dua jenis bunyi:</p>
+                            <ul class="list-disc list-inside text-sm text-slate-700 mt-1 space-y-1">
+                                <li><b>Bunyi Alam:</b> Bunyi yang dihasilkan oleh alam. Contoh: suara angin (wus-wus), suara hujan (tik-tik), suara ayam (kukuruyuk).</li>
+                                <li><b>Bunyi Buatan:</b> Bunyi yang dibuat oleh manusia/benda. Contoh: suara peluit (prit-prit), gitar (jreng-jreng), bel sepeda (kring-kring).</li>
+                            </ul>
+                        </div>
+                        <div class="bg-yellow-50 p-4 rounded-xl border border-yellow-200">
+                            <h4 class="font-bold text-yellow-900 text-base mb-1">2. Mengenal Huruf B & Suku Kata</h4>
+                            <p class="text-sm text-slate-700 mb-2">Menggabungkan huruf B dengan huruf vokal (a, i, u, e, o):</p>
+                            <div class="flex flex-wrap gap-2 font-bold text-base text-blue-700">
+                                <span class="bg-white px-3 py-1 rounded-lg border border-yellow-300">ba</span>
+                                <span class="bg-white px-3 py-1 rounded-lg border border-yellow-300">bi</span>
+                                <span class="bg-white px-3 py-1 rounded-lg border border-yellow-300">bu</span>
+                                <span class="bg-white px-3 py-1 rounded-lg border border-yellow-300">be</span>
+                                <span class="bg-white px-3 py-1 rounded-lg border border-yellow-300">bo</span>
+                            </div>
+                            <p class="text-xs text-slate-600 mt-2"><b>Contoh kata:</b> ba-tu, bi-ru, bu-ku, be-bek, bo-la.</p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: 2,
+                title: "Bab 2: Ayo Bermain!",
+                badge: "Bab 2",
+                icon: "⚽",
+                summary: "Aturan bermain dengan aman dan mengenal suku kata berawalan H dan C.",
+                content: `
+                    <div class="space-y-4">
+                        <div class="bg-green-50 p-4 rounded-xl border border-green-200">
+                            <h4 class="font-bold text-green-900 text-base mb-1">1. Bermain dengan Aman</h4>
+                            <p class="text-sm text-slate-700">Saat bermain kita harus memperhatikan keselamatan:</p>
+                            <ul class="list-disc list-inside text-sm text-slate-700 mt-1 space-y-1">
+                                <li>Bermain di tempat yang aman (taman atau lapangan).</li>
+                                <li>Tidak berbuat curang dan berhati-hati agar tidak terluka.</li>
+                                <li>Selalu berpamitan kepada orang tua sebelum bermain.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-xl border border-purple-200">
+                            <h4 class="font-bold text-purple-900 text-base mb-1">2. Huruf H dan Huruf C</h4>
+                            <p class="text-sm text-slate-700 mb-2">Suku kata awal H dan C:</p>
+                            <div class="grid grid-cols-2 gap-2 text-sm font-bold">
+                                <div class="bg-white p-2 rounded-lg border border-purple-200">
+                                    <span class="text-purple-600">Huruf H:</span> ha, hi, hu, he, ho (Contoh: ha-ri, hi-tam, hu-jan)
+                                </div>
+                                <div class="bg-white p-2 rounded-lg border border-purple-200">
+                                    <span class="text-purple-600">Huruf C:</span> ca, ci, cu, ce, co (Contoh: ca-ri, ci-ci, cu-ci)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: 3,
+                title: "Bab 3: Awas Kuman!",
+                badge: "Bab 3",
+                icon: "🧼",
+                summary: "Menjaga kebersihan tubuh, cuci tangan, dan membaca kata dengan huruf K.",
+                content: `
+                    <div class="space-y-4">
+                        <div class="bg-pink-50 p-4 rounded-xl border border-pink-200">
+                            <h4 class="font-bold text-pink-900 text-base mb-1">1. Kebersihan dan Kesehatan</h4>
+                            <p class="text-sm text-slate-700">Kuman adalah mahluk kecil penyebab penyakit. Mencegah kuman:</p>
+                            <ul class="list-disc list-inside text-sm text-slate-700 mt-1 space-y-1">
+                                <li>Mencuci tangan dengan sabun dan air mengalir sebelum makan.</li>
+                                <li>Mandi dua kali sehari dan menggosok gigi secara teratur.</li>
+                                <li>Menutup mulut saat bersin atau batuk.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-xl border border-blue-200">
+                            <h4 class="font-bold text-blue-900 text-base mb-1">2. Suku Kata Berawalan K</h4>
+                            <div class="flex flex-wrap gap-2 font-bold text-base text-pink-700 mb-2">
+                                <span class="bg-white px-3 py-1 rounded-lg border border-pink-300">ka</span>
+                                <span class="bg-white px-3 py-1 rounded-lg border border-pink-300">ki</span>
+                                <span class="bg-white px-3 py-1 rounded-lg border border-pink-300">ku</span>
+                                <span class="bg-white px-3 py-1 rounded-lg border border-pink-300">ke</span>
+                                <span class="bg-white px-3 py-1 rounded-lg border border-pink-300">ko</span>
+                            </div>
+                            <p class="text-xs text-slate-600"><b>Contoh kata:</b> ka-ka, ki-pa, ku-ku, ke-ra, ko-ta.</p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: 4,
+                title: "Bab 4: Aku Bisa!",
+                badge: "Bab 4",
+                icon: "🤸",
+                summary: "Gerakan tubuh, keberanian mencoba hal baru, dan membaca kata huruf L.",
+                content: `
+                    <div class="space-y-4">
+                        <div class="bg-indigo-50 p-4 rounded-xl border border-indigo-200">
+                            <h4 class="font-bold text-indigo-900 text-base mb-1">1. Gerakan Tubuh</h4>
+                            <p class="text-sm text-slate-700">Tubuh kita bisa bergerak dengan aktif:</p>
+                            <ul class="list-disc list-inside text-sm text-slate-700 mt-1 space-y-1">
+                                <li>Melompat, berlari, menari, menendang bola.</li>
+                                <li>Selalu berhati-hati saat melakukan kegiatan fisik agar tidak tergelincir.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-amber-50 p-4 rounded-xl border border-amber-200">
+                            <h4 class="font-bold text-amber-900 text-base mb-1">2. Suku Kata Berawalan L</h4>
+                            <div class="flex flex-wrap gap-2 font-bold text-base text-amber-800">
+                                <span class="bg-white px-3 py-1 rounded-lg border border-amber-300">la</span>
+                                <span class="bg-white px-3 py-1 rounded-lg border border-amber-300">li</span>
+                                <span class="bg-white px-3 py-1 rounded-lg border border-amber-300">lu</span>
+                                <span class="bg-white px-3 py-1 rounded-lg border border-amber-300">le</span>
+                                <span class="bg-white px-3 py-1 rounded-lg border border-amber-300">lo</span>
+                            </div>
+                            <p class="text-xs text-slate-600 mt-2"><b>Contoh kata:</b> la-ri, li-ma, lu-pa, le-le, lo-mpat.</p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: 5,
+                title: "Bab 5: Teman Baru",
+                badge: "Bab 5",
+                icon: "🤝",
+                summary: "Cara berkenalan santun, menyapa teman, dan kata berawalan M.",
+                content: `
+                    <div class="space-y-4">
+                        <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200">
+                            <h4 class="font-bold text-emerald-900 text-base mb-1">1. Berkenalan dan Menyapa</h4>
+                            <p class="text-sm text-slate-700">Saat berkenalan dengan teman baru:</p>
+                            <ul class="list-disc list-inside text-sm text-slate-700 mt-1 space-y-1">
+                                <li>Sebutkan nama dengan jelas dan tersenyum ramah.</li>
+                                <li>Gunakan kata sapaan santun: "Halo!", "Selamat pagi!", "Bolehkah kita berteman?".</li>
+                            </ul>
+                        </div>
+                        <div class="bg-teal-50 p-4 rounded-xl border border-teal-200">
+                            <h4 class="font-bold text-teal-900 text-base mb-1">2. Suku Kata Berawalan M</h4>
+                            <div class="flex flex-wrap gap-2 font-bold text-base text-teal-800">
+                                <span class="bg-white px-3 py-1 rounded-lg border border-teal-300">ma</span>
+                                <span class="bg-white px-3 py-1 rounded-lg border border-teal-300">mi</span>
+                                <span class="bg-white px-3 py-1 rounded-lg border border-teal-300">mu</span>
+                                <span class="bg-white px-3 py-1 rounded-lg border border-teal-300">me</span>
+                                <span class="bg-white px-3 py-1 rounded-lg border border-teal-300">mo</span>
+                            </div>
+                            <p class="text-xs text-slate-600 mt-2"><b>Contoh kata:</b> ma-ta, mi-num, mu-ka, me-ja, mo-bil.</p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: 6,
+                title: "Bab 6: Temanku Berbeda",
+                badge: "Bab 6",
+                icon: "🎨",
+                summary: "Menghargai perbedaan di antara teman dan suku kata huruf G.",
+                content: `
+                    <div class="space-y-4">
+                        <div class="bg-rose-50 p-4 rounded-xl border border-rose-200">
+                            <h4 class="font-bold text-rose-900 text-base mb-1">1. Saling Menghargai</h4>
+                            <p class="text-sm text-slate-700">Setiap teman memiliki keunikan masing-masing:</p>
+                            <ul class="list-disc list-inside text-sm text-slate-700 mt-1 space-y-1">
+                                <li>Ada yang rambutnya keriting atau lurus, tinggi atau pendek.</li>
+                                <li>Kita harus tetap saling menyayangi dan tidak boleh mengejek.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-sky-50 p-4 rounded-xl border border-sky-200">
+                            <h4 class="font-bold text-sky-900 text-base mb-1">2. Suku Kata Berawalan G</h4>
+                            <div class="flex flex-wrap gap-2 font-bold text-base text-sky-800">
+                                <span class="bg-white px-3 py-1 rounded-lg border border-sky-300">ga</span>
+                                <span class="bg-white px-3 py-1 rounded-lg border border-sky-300">gi</span>
+                                <span class="bg-white px-3 py-1 rounded-lg border border-sky-300">gu</span>
+                                <span class="bg-white px-3 py-1 rounded-lg border border-sky-300">ge</span>
+                                <span class="bg-white px-3 py-1 rounded-lg border border-sky-300">go</span>
+                            </div>
+                            <p class="text-xs text-slate-600 mt-2"><b>Contoh kata:</b> ga-jah, gi-gi, gu-ru, ge-las, go-ro.</p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: 7,
+                title: "Bab 7: Aku Ingin",
+                badge: "Bab 7",
+                icon: "🛍️",
+                summary: "Membedakan kebutuhan vs keinginan dan membaca suku kata huruf P.",
+                content: `
+                    <div class="space-y-4">
+                        <div class="bg-amber-50 p-4 rounded-xl border border-amber-200">
+                            <h4 class="font-bold text-amber-900 text-base mb-1">1. Kebutuhan vs Keinginan</h4>
+                            <p class="text-sm text-slate-700">Belajar menjadi anak bijak:</p>
+                            <ul class="list-disc list-inside text-sm text-slate-700 mt-1 space-y-1">
+                                <li><b>Kebutuhan:</b> Hal yang wajib dipenuhi (makanan sehat, pakaian, buku sekolah).</li>
+                                <li><b>Keinginan:</b> Hal yang ingin dimiliki tapi tidak wajib (mainan baru, es krim berlebihan).</li>
+                            </ul>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-xl border border-purple-200">
+                            <h4 class="font-bold text-purple-900 text-base mb-1">2. Suku Kata Berawalan P</h4>
+                            <div class="flex flex-wrap gap-2 font-bold text-base text-purple-800">
+                                <span class="bg-white px-3 py-1 rounded-lg border border-purple-300">pa</span>
+                                <span class="bg-white px-3 py-1 rounded-lg border border-purple-300">pi</span>
+                                <span class="bg-white px-3 py-1 rounded-lg border border-purple-300">pu</span>
+                                <span class="bg-white px-3 py-1 rounded-lg border border-purple-300">pe</span>
+                                <span class="bg-white px-3 py-1 rounded-lg border border-purple-300">po</span>
+                            </div>
+                            <p class="text-xs text-slate-600 mt-2"><b>Contoh kata:</b> pa-gi, pi-ta, pu-tih, pe-na, po-hon.</p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: 8,
+                title: "Bab 8: Di Sekitar Rumah",
+                badge: "Bab 8",
+                icon: "🏡",
+                summary: "Mengenal petunjuk denah sederhana dan membaca suku kata huruf R.",
+                content: `
+                    <div class="space-y-4">
+                        <div class="bg-teal-50 p-4 rounded-xl border border-teal-200">
+                            <h4 class="font-bold text-teal-900 text-base mb-1">1. Denah dan Lokasi Rumah</h4>
+                            <p class="text-sm text-slate-700">Mengenal arah dan benda di sekitar rumah:</p>
+                            <ul class="list-disc list-inside text-sm text-slate-700 mt-1 space-y-1">
+                                <li>Kata petunjuk: kanan, kiri, depan, belakang, samping.</li>
+                                <li>Mengenal alamat rumah sendiri agar tidak tersesat.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-xl border border-blue-200">
+                            <h4 class="font-bold text-blue-900 text-base mb-1">2. Suku Kata Berawalan R</h4>
+                            <div class="flex flex-wrap gap-2 font-bold text-base text-blue-800">
+                                <span class="bg-white px-3 py-1 rounded-lg border border-blue-300">ra</span>
+                                <span class="bg-white px-3 py-1 rounded-lg border border-blue-300">ri</span>
+                                <span class="bg-white px-3 py-1 rounded-lg border border-blue-300">ru</span>
+                                <span class="bg-white px-3 py-1 rounded-lg border border-blue-300">re</span>
+                                <span class="bg-white px-3 py-1 rounded-lg border border-blue-300">ro</span>
+                            </div>
+                            <p class="text-xs text-slate-600 mt-2"><b>Contoh kata:</b> ra-ja, ri-bu, ru-mah, re-nang, ro-ti.</p>
+                        </div>
+                    </div>
+                `
+            }
+        ];
+
+        /* =================================================================
+           2. DATA 50 SOAL KUIS BAHASA INDONESIA KELAS 1 (LENGKAP & UNIK)
+           ================================================================= */
+        const questionsData = [
+            // BAB 1 SOAL
+            {
+                id: 1,
+                chapter: "Bab 1: Bunyi Apa?",
+                question: "Bunyi angin yang bertiup kencang terdengar seperti...",
+                options: ["A. Krik-krik", "B. Wus-wus", "B. Tik-tik", "D. Prit-prit"],
+                correct: 1,
+                explanation: "Bunyi angin bertiup kencang berbunyi 'wus-wus'. 'Tik-tik' adalah bunyi hujan, 'prit-prit' adalah peluit."
+            },
+            {
+                id: 2,
+                chapter: "Bab 1: Bunyi Apa?",
+                question: "Manakah di bawah ini yang merupakan contoh BUNYI ALAM?",
+                options: ["A. Suara bel sekolah", "B. Suara klakson mobil", "C. Suara petir menyambar", "D. Suara gitar dipetik"],
+                correct: 2,
+                explanation: "Petir berasal dari alam sehingga bunyinya disebut bunyi alam."
+            },
+            {
+                id: 3,
+                chapter: "Bab 1: Bunyi Apa?",
+                question: "Suku kata awal dari kata 'BOLA' adalah...",
+                options: ["A. Ba", "B. Bi", "C. Bo", "D. Bu"],
+                correct: 2,
+                explanation: "Kata BOLA terdiri dari suku kata BO - LA. Suku kata awalnya adalah BO."
+            },
+            {
+                id: 4,
+                chapter: "Bab 1: Bunyi Apa?",
+                question: "Suara hewan kucing yaitu...",
+                options: ["A. Mbeee", "B. Meong-meong", "C. Kukuruyuk", "D. Guk-guk"],
+                correct: 1,
+                explanation: "Kucing berbunyi 'meong-meong'."
+            },
+            {
+                id: 5,
+                chapter: "Bab 1: Bunyi Apa?",
+                question: "Lengkapi kata berikut dengan suku kata yang tepat: '... - ku'",
+                options: ["A. Bu", "B. Bi", "C. Be", "D. Bo"],
+                correct: 0,
+                explanation: "Gabungan suku kata 'Bu' + 'ku' menjadi kata 'Buku'."
+            },
+            {
+                id: 6,
+                chapter: "Bab 1: Bunyi Apa?",
+                question: "Bunyi peluit ditiup pak polisi adalah contoh bunyi...",
+                options: ["A. Alam", "B. Buatan", "C. Gaib", "D. Hewan"],
+                correct: 1,
+                explanation: "Peluit adalah alat buatan manusia, sehingga bunyinya disebut bunyi buatan."
+            },
+
+            // BAB 2 SOAL
+            {
+                id: 7,
+                chapter: "Bab 2: Ayo Bermain!",
+                question: "Sebelum pergi bermain ke luar rumah, kita harus...",
+                options: ["A. Menangis", "B. Berpamitan pada orang tua", "C. Membentak kakak", "D. Langsung lari"],
+                correct: 1,
+                explanation: "Anak yang baik selalu berpamitan dan meminta izin kepada orang tua sebelum bermain."
+            },
+            {
+                id: 8,
+                chapter: "Bab 2: Ayo Bermain!",
+                question: "Suku kata awal kata 'HARIMAU' adalah...",
+                options: ["A. Ha", "B. Hi", "C. Hu", "D. He"],
+                correct: 0,
+                explanation: "HA - RI - MAU. Suku kata paling awal adalah HA."
+            },
+            {
+                id: 9,
+                chapter: "Bab 2: Ayo Bermain!",
+                question: "Kata 'CACI' terdiri dari suku kata...",
+                options: ["A. Ca dan Cu", "B. Ca dan Ci", "C. Ci dan Ce", "D. Co dan Ca"],
+                correct: 1,
+                explanation: "Kata CACI terdiri dari suku kata CA dan CI."
+            },
+            {
+                id: 10,
+                chapter: "Bab 2: Ayo Bermain!",
+                question: "Tempat bermain yang aman bagi anak-anak adalah...",
+                options: ["A. Di tengah jalan raya", "B. Di taman permainan", "C. Di dekat jurang", "D. Di tempat sampah"],
+                correct: 1,
+                explanation: "Taman permainan dirancang aman untuk anak-anak bermain."
+            },
+            {
+                id: 11,
+                chapter: "Bab 2: Ayo Bermain!",
+                question: "Suku kata 'HI' terdapat pada kata...",
+                options: ["A. Hujan", "B. Hitam", "C. Handuk", "D. Hidung"],
+                correct: 1,
+                explanation: "HI - TAM diawali dengan suku kata HI."
+            },
+            {
+                id: 12,
+                chapter: "Bab 2: Ayo Bermain!",
+                question: "Saat bermain bersama teman, kita tidak boleh...",
+                options: ["A. Jujur", "B. Rukun", "C. Curang", "D. Baik"],
+                correct: 2,
+                explanation: "Curang adalah sikap tidak terpuji saat bermain."
+            },
+
+            // BAB 3 SOAL
+            {
+                id: 13,
+                chapter: "Bab 3: Awas Kuman!",
+                question: "Kuman bisa membuat tubuh kita menjadi...",
+                options: ["A. Sehat", "B. Sakit", "C. Kuat", "D. Pintar"],
+                correct: 1,
+                explanation: "Kuman membawa penyakit yang menyebabkan tubuh sakit jika tidak menjaga kebersihan."
+            },
+            {
+                id: 14,
+                chapter: "Bab 3: Awas Kuman!",
+                question: "Sebelum makan kita harus mencuci tangan menggunakan...",
+                options: ["A. Air minum", "B. Sabun dan air mengalir", "C. Minyak goreng", "D. Kecap"],
+                correct: 1,
+                explanation: "Mencuci tangan menggunakan sabun dan air mengalir efektif membunuh kuman."
+            },
+            {
+                id: 15,
+                chapter: "Bab 3: Awas Kuman!",
+                question: "Suku kata awal kata 'KUCING' adalah...",
+                options: ["A. Ka", "B. Ki", "C. Ku", "D. Ke"],
+                correct: 2,
+                explanation: "KU - CING berawalan suku kata KU."
+            },
+            {
+                id: 16,
+                chapter: "Bab 3: Awas Kuman!",
+                question: "Ketika bersin, kita sebaiknya...",
+                options: ["A. Menutup mulut", "B. Tertawa keras", "C. Membuka mulut lebar-lebar", "D. Meniup teman"],
+                correct: 0,
+                explanation: "Menutup mulut saat bersin mencegah penyebaran kuman ke orang lain."
+            },
+            {
+                id: 17,
+                chapter: "Bab 3: Awas Kuman!",
+                question: "Pilih kata yang diawali dengan suku kata 'KA'...",
+                options: ["A. Kipas", "B. Kuda", "C. Katak", "D. Kebun"],
+                correct: 2,
+                explanation: "KA - TAK diawali suku kata KA."
+            },
+            {
+                id: 18,
+                chapter: "Bab 3: Awas Kuman!",
+                question: "Menggosok gigi sebaiknya dilakukan sebanyak...",
+                options: ["A. Seminggu sekali", "B. Minimal 2 kali sehari", "C. Setahun sekali", "D. Tidak pernah"],
+                correct: 1,
+                explanation: "Menggosok gigi minimal 2 kali sehari (pagi dan malam sebelum tidur)."
+            },
+
+            // BAB 4 SOAL
+            {
+                id: 19,
+                chapter: "Bab 4: Aku Bisa!",
+                question: "Gerakan melompat menggunakan...",
+                options: ["A. Tangan", "B. Kaki", "C. Hidung", "D. Telinga"],
+                correct: 1,
+                explanation: "Melompat dilakukan dengan dorongan kaki."
+            },
+            {
+                id: 20,
+                chapter: "Bab 4: Aku Bisa!",
+                question: "Suku kata awal pada kata 'LARI' adalah...",
+                options: ["A. La", "B. Li", "C. Lu", "D. Le"],
+                correct: 0,
+                explanation: "LA - RI berawalan dengan LA."
+            },
+            {
+                id: 21,
+                chapter: "Bab 4: Aku Bisa!",
+                question: "Kata 'LILIN' diawali suku kata...",
+                options: ["A. La", "B. Li", "C. Lu", "D. Lo"],
+                correct: 1,
+                explanation: "LI - LIN berawalan dengan LI."
+            },
+            {
+                id: 22,
+                chapter: "Bab 4: Aku Bisa!",
+                question: "Manakah benda yang berawalan suku kata 'LU'?",
+                options: ["A. Lalat", "B. LILIN", "C. Lutut", "D. Lemon"],
+                correct: 2,
+                explanation: "LU - TUT berawalan dengan LU."
+            },
+            {
+                id: 23,
+                chapter: "Bab 4: Aku Bisa!",
+                question: "Bila kita ingin mahir menari, kita harus rajin...",
+                options: ["A. Tidur", "B. Berlatih", "C. Menangis", "D. Marah"],
+                correct: 1,
+                explanation: "Berlatih secara teratur membuat kita makin terampil."
+            },
+            {
+                id: 24,
+                chapter: "Bab 4: Aku Bisa!",
+                question: "Olahraga menendang bola ke gawang dinamakan...",
+                options: ["A. Renang", "B. Sepak bola", "C. Catur", "D. Lari cepat"],
+                correct: 1,
+                explanation: "Sepak bola menggunakan gerakan menendang bola."
+            },
+
+            // BAB 5 SOAL
+            {
+                id: 25,
+                chapter: "Bab 5: Teman Baru",
+                question: "Ucapan sapaan yang sopan saat bertemu guru di pagi hari adalah...",
+                options: ["A. Selamat malam", "B. Selamat pagi, Bu Guru", "C. Halo bos", "D. Dilarang lewat"],
+                correct: 1,
+                explanation: "Sapaan ramah dan sopan di pagi hari adalah 'Selamat pagi, Bu Guru'."
+            },
+            {
+                id: 26,
+                chapter: "Bab 5: Teman Baru",
+                question: "Suku kata awal kata 'MATA' adalah...",
+                options: ["A. Ma", "B. Mi", "C. Mu", "D. Me"],
+                correct: 0,
+                explanation: "MA - TA diawali dengan suku kata MA."
+            },
+            {
+                id: 27,
+                chapter: "Bab 5: Teman Baru",
+                question: "Saat berkenalan dengan teman baru, kita menyebutkan...",
+                options: ["A. Nama kita", "B. Jumlah uang kita", "C. Keburukan orang lain", "D. Kekurangan teman"],
+                correct: 0,
+                explanation: "Saat berkenalan kita memperkenalkan nama diri dengan sopan."
+            },
+            {
+                id: 28,
+                chapter: "Bab 5: Teman Baru",
+                question: "Lengkapi kata berikut: '... - num' (kegiatan minum)",
+                options: ["A. Ma", "B. Mi", "C. Mu", "D. Me"],
+                correct: 1,
+                explanation: "MI + NUM = Minum."
+            },
+            {
+                id: 29,
+                chapter: "Bab 5: Teman Baru",
+                question: "Manakah kata yang diawali dengan suku kata 'ME'?",
+                options: ["A. Mobil", "B. Muka", "C. Meja", "D. Macan"],
+                correct: 2,
+                explanation: "ME - JA diawali dengan suku kata ME."
+            },
+            {
+                id: 30,
+                chapter: "Bab 5: Teman Baru",
+                question: "Sikap saat berbicara dengan teman baru adalah...",
+                options: ["A. Tersenyum dan ramah", "B. Cemberut dan marah", "C. Membelakangi teman", "D. Berteriak kasar"],
+                correct: 0,
+                explanation: "Tersenyum dan bersikap ramah membuat pertemanan menjadi menyenangkan."
+            },
+
+            // BAB 6 SOAL
+            {
+                id: 31,
+                chapter: "Bab 6: Temanku Berbeda",
+                question: "Teman kita ada yang rambutnya lurus dan ada yang keriting. Kita harus...",
+                options: ["A. Mengejeknya", "B. Tetap berteman baik", "C. Memusuhinya", "D. Menjauhinya"],
+                correct: 1,
+                explanation: "Meskipun memiliki perbedaan fisik, kita harus tetap saling menghargai dan berteman baik."
+            },
+            {
+                id: 32,
+                chapter: "Bab 6: Temanku Berbeda",
+                question: "Suku kata awal kata 'GAJAH' adalah...",
+                options: ["A. Ga", "B. Gi", "C. Gu", "D. Ge"],
+                correct: 0,
+                explanation: "GA - JAH diawali dengan suku kata GA."
+            },
+            {
+                id: 33,
+                chapter: "Bab 6: Temanku Berbeda",
+                question: "Manakah kata di bawah ini yang diawali suku kata 'GI'?",
+                options: ["A. Guru", "B. Gigi", "C. Gelot", "D. Gajah"],
+                correct: 1,
+                explanation: "GI - GI diawali suku kata GI."
+            },
+            {
+                id: 34,
+                chapter: "Bab 6: Temanku Berbeda",
+                question: "Pengajar di sekolah yang membimbing kita belajar bernama...",
+                options: ["A. Gu - ru", "B. Gi - ri", "C. Ga - ja", "D. Go - la"],
+                correct: 0,
+                explanation: "Guru (Gu - ru) adalah pendidik di sekolah."
+            },
+            {
+                id: 35,
+                chapter: "Bab 6: Temanku Berbeda",
+                question: "Kata 'GELAS' diawali suku kata...",
+                options: ["A. Ga", "B. Gi", "C. Gu", "D. Ge"],
+                correct: 3,
+                explanation: "GE - LAS diawali suku kata GE."
+            },
+            {
+                id: 36,
+                chapter: "Bab 6: Temanku Berbeda",
+                question: "Jika teman kita jatuh dari sepeda, sikap kita adalah...",
+                options: ["A. Tertawa gembira", "B. Mendorongnya", "C. Menolongnya", "D. Meninggalkannya"],
+                correct: 2,
+                explanation: "Anak baik selalu menolong teman yang membutuhkan bantuan."
+            },
+
+            // BAB 7 SOAL
+            {
+                id: 37,
+                chapter: "Bab 7: Aku Ingin",
+                question: "Manakah yang merupakan KEBUTUHAN utama anak sekolah?",
+                options: ["A. Mainan mahal", "B. Buku dan pensil", "C. Es krim 10 bungkus", "D. Game HP"],
+                correct: 1,
+                explanation: "Buku dan pensil adalah kebutuhan penting untuk belajar."
+            },
+            {
+                id: 38,
+                chapter: "Bab 7: Aku Ingin",
+                question: "Suku kata awal kata 'PAGI' adalah...",
+                options: ["A. Pa", "B. Pi", "C. Pu", "D. Pe"],
+                correct: 0,
+                explanation: "PA - GI diawali dengan suku kata PA."
+            },
+            {
+                id: 39,
+                chapter: "Bab 7: Aku Ingin",
+                question: "Benda alat tulis yang digunakan untuk menggambar adalah 'PENSIL'. Suku kata awalnya...",
+                options: ["A. Pa", "B. Pi", "C. Pe", "D. Po"],
+                correct: 2,
+                explanation: "PE - NSI - L diawali dengan suku kata PE."
+            },
+            {
+                id: 40,
+                chapter: "Bab 7: Aku Ingin",
+                question: "Kata 'PUTIH' diawali dengan suku kata...",
+                options: ["A. Pa", "B. Pi", "C. Pu", "D. Po"],
+                correct: 2,
+                explanation: "PU - TIH diawali suku kata PU."
+            },
+            {
+                id: 41,
+                chapter: "Bab 7: Aku Ingin",
+                question: "Hal yang tergolong KEINGINAN (bukan kebutuhan pokok) adalah...",
+                options: ["A. Nasi dan air putih", "B. Baju seragam", "C. Mainan robot baru", "D. Tempat tinggal"],
+                correct: 2,
+                explanation: "Mainan robot adalah keinginan, bukan kebutuhan pokok hidup."
+            },
+            {
+                id: 42,
+                chapter: "Bab 7: Aku Ingin",
+                question: "Tumbuhan yang tinggi dan memiliki daun rindang disebut 'POHON'. Suku kata awalnya...",
+                options: ["A. Pa", "B. Pi", "C. Pu", "D. Po"],
+                correct: 3,
+                explanation: "PO - HON berawalan dengan PO."
+            },
+
+            // BAB 8 SOAL
+            {
+                id: 43,
+                chapter: "Bab 8: Di Sekitar Rumah",
+                question: "Tempat tinggal dan berkumpul bersama keluarga disebut...",
+                options: ["A. Pasar", "B. Rumah", "C. Jalan", "D. Kolam"],
+                correct: 1,
+                explanation: "Rumah adalah tempat tinggal bagi keluarga."
+            },
+            {
+                id: 44,
+                chapter: "Bab 8: Di Sekitar Rumah",
+                question: "Suku kata awal kata 'RUMAH' adalah...",
+                options: ["A. Ra", "B. Ri", "C. Ru", "D. Re"],
+                correct: 2,
+                explanation: "RU - MAH diawali suku kata RU."
+            },
+            {
+                id: 45,
+                chapter: "Bab 8: Di Sekitar Rumah",
+                question: "Manakah kata yang berawalan suku kata 'RO'?",
+                options: ["A. Raja", "B. Roda", "C. Ribu", "D. Rusa"],
+                correct: 1,
+                explanation: "RO - DA berawalan dengan suku kata RO."
+            },
+            {
+                id: 46,
+                chapter: "Bab 8: Di Sekitar Rumah",
+                question: "Makanan lezat dari tepung yang dipanggang contohnya 'ROTI'. Suku kata awalnya...",
+                options: ["A. Ra", "B. Ri", "C. Ru", "D. Ro"],
+                correct: 3,
+                explanation: "RO - TI berawalan suku kata RO."
+            },
+            {
+                id: 47,
+                chapter: "Bab 8: Di Sekitar Rumah",
+                question: "Untuk mengetahui letak suatu bangunan atau rumah, kita dapat melihat...",
+                options: ["A. Lukisan", "B. Denah petunjuk lokasi", "C. Jam dinding", "D. Kaca spion"],
+                correct: 1,
+                explanation: "Denah digunakan untuk melihat petunjuk lokasi tempat."
+            },
+            {
+                id: 48,
+                chapter: "Bab 8: Di Sekitar Rumah",
+                question: "Lengkapi suku kata berikut: '... - na - ng' (kegiatan di air)",
+                options: ["A. Ra", "B. Re", "C. Ri", "D. Ru"],
+                correct: 1,
+                explanation: "RE - NA - NG = Renang."
+            },
+            {
+                id: 49,
+                chapter: "Bab 8: Di Sekitar Rumah",
+                question: "Lawan kata dari 'KANAN' adalah...",
+                options: ["A. Atas", "B. Kiri", "C. Depan", "D. Bawah"],
+                correct: 1,
+                explanation: "Lawan kata dari arah kanan adalah arah kiri."
+            },
+            {
+                id: 50,
+                chapter: "Bab 8: Di Sekitar Rumah",
+                question: "Suku kata awal kata 'RUSA' adalah...",
+                options: ["A. Ra", "B. Ri", "C. Ru", "D. Re"],
+                correct: 2,
+                explanation: "RU - SA diawali dengan suku kata RU."
+            }
+        ];
+
+        /* =================================================================
+           3. AUDIO ENGINE (SYNTHESIS TTS & WEB AUDIO API SFX & BGM)
+           ================================================================= */
+        let voiceEnabled = true;
+        let bgmEnabled = true;
+        let audioCtx = null;
+        let bgmInterval = null;
+
+        function getAudioContext() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            return audioCtx;
+        }
+
+        // TTS Speech Synthesis in Indonesian
+        function speakText(text) {
+            if (!voiceEnabled || !('speechSynthesis' in window)) return;
+            
+            window.speechSynthesis.cancel(); // Stop current speech
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'id-ID';
+            utterance.rate = 0.95; // Friendly pace for kids
+            utterance.pitch = 1.1; // Cheerful voice pitch
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function toggleVoice() {
+            voiceEnabled = !voiceEnabled;
+            const btn = document.getElementById('btnVoiceToggle');
+            const icon = document.getElementById('iconVoice');
+            const txt = document.getElementById('txtVoice');
+            
+            if (voiceEnabled) {
+                btn.className = "p-2.5 px-3 rounded-xl bg-purple-100 hover:bg-purple-200 text-purple-700 font-bold text-xs sm:text-sm flex items-center gap-2 transition";
+                icon.className = "fa-solid fa-volume-high text-base";
+                txt.innerText = "Suara: ON";
+                speakText("Suara diaktifkan");
+            } else {
+                btn.className = "p-2.5 px-3 rounded-xl bg-slate-200 text-slate-500 font-bold text-xs sm:text-sm flex items-center gap-2 transition";
+                icon.className = "fa-solid fa-volume-xmark text-base";
+                txt.innerText = "Suara: OFF";
+                window.speechSynthesis.cancel();
+            }
+        }
+
+        // Web Audio Procedural Sound Effects
+        function playSfx(type) {
+            try {
+                const ctx = getAudioContext();
+                const now = ctx.currentTime;
+                
+                if (type === 'correct') {
+                    // Cheerful Arpeggio C Major
+                    const freqs = [523.25, 659.25, 783.99, 1046.50];
+                    freqs.forEach((f, i) => {
+                        const osc = ctx.createOscillator();
+                        const gain = ctx.createGain();
+                        osc.type = 'sine';
+                        osc.frequency.setValueAtTime(f, now + i * 0.08);
+                        gain.gain.setValueAtTime(0.15, now + i * 0.08);
+                        gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.08 + 0.3);
+                        osc.connect(gain);
+                        gain.connect(ctx.destination);
+                        osc.start(now + i * 0.08);
+                        osc.stop(now + i * 0.08 + 0.35);
+                    });
+                } else if (type === 'wrong') {
+                    // Gentle Low Boing Sound
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(220, now);
+                    osc.frequency.exponentialRampToValueAtTime(110, now + 0.3);
+                    gain.gain.setValueAtTime(0.2, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.35);
+                } else if (type === 'click') {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(400, now);
+                    gain.gain.setValueAtTime(0.05, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.06);
+                }
+            } catch (e) {
+                console.log("Audio play error:", e);
+            }
+        }
+
+        // Procedural Light Cheerful Background Music Synth
+        function toggleBGM() {
+            bgmEnabled = !bgmEnabled;
+            const btn = document.getElementById('btnBgmToggle');
+            const icon = document.getElementById('iconBgm');
+            const txt = document.getElementById('txtBgm');
+
+            if (bgmEnabled) {
+                btn.className = "p-2.5 px-3 rounded-xl bg-pink-100 hover:bg-pink-200 text-pink-700 font-bold text-xs sm:text-sm flex items-center gap-2 transition";
+                icon.className = "fa-solid fa-music text-base";
+                txt.innerText = "Musik: ON";
+                startBGM();
+            } else {
+                btn.className = "p-2.5 px-3 rounded-xl bg-slate-200 text-slate-500 font-bold text-xs sm:text-sm flex items-center gap-2 transition";
+                icon.className = "fa-solid fa-volume-xmark text-base";
+                txt.innerText = "Musik: OFF";
+                stopBGM();
+            }
+        }
+
+        function startBGM() {
+            if (bgmInterval) clearInterval(bgmInterval);
+            const notes = [261.63, 329.63, 392.00, 523.25, 392.00, 329.63]; // C E G C G E pentatonic loop
+            let idx = 0;
+
+            bgmInterval = setInterval(() => {
+                if (!bgmEnabled) return;
+                try {
+                    const ctx = getAudioContext();
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(notes[idx], ctx.currentTime);
+                    gain.gain.setValueAtTime(0.02, ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.4);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(ctx.currentTime);
+                    osc.stop(ctx.currentTime + 0.45);
+                    idx = (idx + 1) % notes.length;
+                } catch(e){}
+            }, 600);
+        }
+
+        function stopBGM() {
+            if (bgmInterval) {
+                clearInterval(bgmInterval);
+                bgmInterval = null;
+            }
+        }
+
+        /* =================================================================
+           4. GAME STATE & SCREEN NAVIGATION MANAGEMENT
+           ================================================================= */
+        let studentName = "";
+        let currentQuestionIdx = 0;
+        let score = 0;
+        let correctCount = 0;
+        let incorrectCount = 0;
+        let isQuizActive = false;
+        let userAnswers = {}; // Saved answers state
+
+        function showScreen(screenId) {
+            playSfx('click');
+            const screens = ['screenWelcome', 'screenMenu', 'screenMaterials', 'screenQuiz', 'screenResult'];
+            screens.forEach(s => {
+                const el = document.getElementById(s);
+                if (el) el.classList.add('hidden');
+            });
+            const target = document.getElementById(screenId);
+            if (target) target.classList.remove('hidden');
+        }
+
+        /* =================================================================
+           5. WELCOME & NAME INPUT
+           ================================================================= */
+        function submitNameAndStart() {
+            const input = document.getElementById('studentName');
+            const nameVal = input.value.trim();
+            
+            if (!nameVal) {
+                input.classList.add('border-red-500', 'animate-shake');
+                setTimeout(() => input.classList.remove('border-red-500', 'animate-shake'), 1000);
+                speakText("Silakan masukkan nama kamu terlebih dahulu!");
+                return;
+            }
+
+            studentName = nameVal;
+            // Update all student name spans in UI
+            document.querySelectorAll('.studentNameSpan').forEach(el => el.innerText = studentName);
+
+            // Audio greeting as specified
+            const greeting = `Halo, ${studentName}! Selamat datang di Petualangan Bahasa Indonesia.`;
+            speakText(greeting);
+
+            // Show welcoming alert box briefly
+            const greetingContainer = document.getElementById('greetingContainer');
+            document.getElementById('greetingText').innerText = greeting;
+            greetingContainer.classList.remove('hidden');
+
+            // Start ambient music
+            if (bgmEnabled) startBGM();
+
+            setTimeout(() => {
+                showScreen('screenMenu');
+            }, 1800);
+        }
+
+        /* =================================================================
+           6. LEARNING MATERIALS VIEW LOGIC
+           ================================================================= */
+        function initMaterials() {
+            const tabsContainer = document.getElementById('chapterTabs');
+            tabsContainer.innerHTML = '';
+
+            materialsData.forEach((mat, idx) => {
+                const btn = document.createElement('button');
+                btn.className = `tab-btn flex-shrink-0 px-4 py-2 rounded-xl font-bold text-xs sm:text-sm border transition flex items-center gap-1.5 ${idx === 0 ? 'active' : 'bg-white border-slate-200 text-slate-700 hover:bg-slate-50'}`;
+                btn.innerHTML = `<span>${mat.icon}</span> <span>${mat.badge}</span>`;
+                btn.onclick = () => renderMaterialContent(mat.id);
+                btn.id = `tab-mat-${mat.id}`;
+                tabsContainer.appendChild(btn);
+            });
+
+            renderMaterialContent(materialsData[0].id);
+        }
+
+        function renderMaterialContent(matId) {
+            playSfx('click');
+            const mat = materialsData.find(m => m.id === matId);
+            if (!mat) return;
+
+            // Update active tab styling
+            materialsData.forEach(m => {
+                const tabBtn = document.getElementById(`tab-mat-${m.id}`);
+                if (tabBtn) {
+                    if (m.id === matId) {
+                        tabBtn.className = "tab-btn active flex-shrink-0 px-4 py-2 rounded-xl font-bold text-xs sm:text-sm border border-blue-500 transition flex items-center gap-1.5";
+                    } else {
+                        tabBtn.className = "tab-btn flex-shrink-0 px-4 py-2 rounded-xl font-bold text-xs sm:text-sm border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 transition flex items-center gap-1.5";
+                    }
+                }
+            });
+
+            const contentArea = document.getElementById('materialContent');
+            contentArea.innerHTML = `
+                <div class="mb-4 pb-3 border-b border-slate-200 flex justify-between items-center">
+                    <div>
+                        <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">${mat.badge}</span>
+                        <h3 class="text-xl font-bold text-slate-800 font-heading mt-1">${mat.title}</h3>
+                    </div>
+                    <button onclick="speakText('${mat.title}. ${mat.summary}')" class="p-2 bg-purple-100 hover:bg-purple-200 text-purple-700 rounded-xl text-sm font-bold flex items-center gap-1">
+                        <i class="fa-solid fa-volume-high"></i> Baca Ringkasan
+                    </button>
+                </div>
+                <p class="text-sm text-slate-600 mb-4 italic bg-slate-50 p-2.5 rounded-lg border-l-4 border-blue-400">${mat.summary}</p>
+                <div>${mat.content}</div>
+            `;
+        }
+
+        function showMaterialsScreen() {
+            initMaterials();
+            const btnReturn = document.getElementById('btnReturnToQuiz');
+            const btnMenu = document.getElementById('btnBackToMenu');
+
+            if (isQuizActive) {
+                btnReturn.classList.remove('hidden');
+                btnMenu.classList.add('hidden');
+            } else {
+                btnReturn.classList.add('hidden');
+                btnMenu.classList.remove('hidden');
+            }
+
+            showScreen('screenMaterials');
+        }
+
+        function openMaterialsFromQuiz() {
+            speakText(`Membuka materi. Skor kamu ${score} tetap tersimpan.`);
+            showMaterialsScreen();
+        }
+
+        function resumeQuizFromMaterials() {
+            speakText(`Bagus, ${studentName}. Mari kita lanjutkan kuis.`);
+            showScreen('screenQuiz');
+        }
+
+        /* =================================================================
+           7. QUIZ LOGIC & FEEDBACK SYSTEM
+           ================================================================= */
+        function startQuizDirectly() {
+            score = 0;
+            currentQuestionIdx = 0;
+            correctCount = 0;
+            incorrectCount = 0;
+            isQuizActive = true;
+            userAnswers = {};
+
+            document.getElementById('quizScore').innerText = score;
+            speakText(`Bagus, ${studentName}. Sekarang kita mulai kuis 50 soal Bahasa Indonesia.`);
+            showScreen('screenQuiz');
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            const q = questionsData[currentQuestionIdx];
+            
+            // Hide feedback box
+            document.getElementById('feedbackBox').classList.add('hidden');
+            
+            // Update UI Counters
+            document.getElementById('badgeQuestionNumber').innerText = `SOAL ${currentQuestionIdx + 1} DARI 50`;
+            document.getElementById('questionChapterBadge').innerText = q.chapter;
+            document.getElementById('questionText').innerText = q.question;
+            document.getElementById('quizScore').innerText = score;
+
+            // Update Progress Bar
+            const progressPct = ((currentQuestionIdx) / 50) * 100;
+            document.getElementById('quizProgressBar').style.width = `${progressPct}%`;
+
+            // Render Options
+            const optsContainer = document.getElementById('optionsContainer');
+            optsContainer.innerHTML = '';
+
+            q.options.forEach((optText, optIdx) => {
+                const btn = document.createElement('button');
+                btn.className = "p-4 text-left rounded-2xl border-2 border-slate-200 bg-white hover:border-blue-400 hover:bg-blue-50/50 font-bold text-slate-800 text-sm sm:text-base shadow-sm transition-all transform active:scale-95 flex items-center justify-between";
+                btn.innerHTML = `<span>${optText}</span> <i class="fa-regular fa-circle text-slate-300"></i>`;
+                btn.onclick = () => selectAnswer(optIdx);
+                optsContainer.appendChild(btn);
+            });
+        }
+
+        function selectAnswer(selectedIndex) {
+            const q = questionsData[currentQuestionIdx];
+            const isCorrect = (selectedIndex === q.correct);
+            const feedbackBox = document.getElementById('feedbackBox');
+            const feedbackIcon = document.getElementById('feedbackIcon');
+            const feedbackTitle = document.getElementById('feedbackTitle');
+            const feedbackMessage = document.getElementById('feedbackMessage');
+            const feedbackExplanation = document.getElementById('feedbackExplanation');
+
+            // Disable all option buttons
+            const optionBtns = document.getElementById('optionsContainer').children;
+            for (let i = 0; i < optionBtns.length; i++) {
+                optionBtns[i].disabled = true;
+                if (i === q.correct) {
+                    optionBtns[i].className = "p-4 text-left rounded-2xl border-2 border-green-500 bg-green-100 font-bold text-green-900 text-sm sm:text-base shadow-sm flex items-center justify-between";
+                    optionBtns[i].innerHTML += ` <i class="fa-solid fa-circle-check text-green-600 text-lg"></i>`;
+                } else if (i === selectedIndex && !isCorrect) {
+                    optionBtns[i].className = "p-4 text-left rounded-2xl border-2 border-red-500 bg-red-100 font-bold text-red-900 text-sm sm:text-base shadow-sm flex items-center justify-between";
+                    optionBtns[i].innerHTML += ` <i class="fa-solid fa-circle-xmark text-red-600 text-lg"></i>`;
+                } else {
+                    optionBtns[i].className = "p-4 text-left rounded-2xl border-2 border-slate-100 bg-slate-50 font-bold text-slate-400 text-sm sm:text-base opacity-60";
+                }
+            }
+
+            feedbackBox.classList.remove('hidden');
+
+            if (isCorrect) {
+                playSfx('correct');
+                score += 20; // 50 questions * 20 = 1000 max score
+                correctCount++;
+                
+                feedbackBox.className = "p-4 sm:p-5 rounded-2xl border-2 border-green-300 bg-green-50/90 text-green-900 mb-6";
+                feedbackIcon.innerHTML = "✓";
+                feedbackIcon.className = "text-3xl font-black text-green-600 bg-green-200 w-10 h-10 rounded-full flex items-center justify-center";
+                feedbackTitle.innerText = `BENAR! Hebat, ${studentName}!`;
+                feedbackMessage.innerText = "Jawaban kamu tepat sekali!";
+                
+                speakText(`Benar, ${studentName}! Hebat sekali! Jawaban kamu tepat.`);
+            } else {
+                playSfx('wrong');
+                incorrectCount++;
+
+                feedbackBox.className = "p-4 sm:p-5 rounded-2xl border-2 border-red-300 bg-red-50/90 text-red-900 mb-6";
+                feedbackIcon.innerHTML = "✗";
+                feedbackIcon.className = "text-3xl font-black text-red-600 bg-red-200 w-10 h-10 rounded-full flex items-center justify-center";
+                feedbackTitle.innerText = `BELUM TEPAT. ${studentName}, jangan menyerah!`;
+                feedbackMessage.innerText = `Jawaban yang benar adalah: ${q.options[q.correct]}`;
+
+                speakText(`Belum tepat, ${studentName}. Yuk, pelajari kembali pembahasan berikut.`);
+            }
+
+            feedbackExplanation.innerText = `💡 Pembahasan: ${q.explanation}`;
+            document.getElementById('quizScore').innerText = score;
+        }
+
+        function nextQuestion() {
+            currentQuestionIdx++;
+
+            if (currentQuestionIdx < questionsData.length) {
+                speakText(`Bagus, ${studentName}. Sekarang kita lanjut ke soal berikutnya.`);
+                loadQuestion();
+            } else {
+                finishQuiz();
+            }
+        }
+
+        /* =================================================================
+           8. FINAL RESULTS & CERTIFICATE GENERATION
+           ================================================================= */
+        function finishQuiz() {
+            isQuizActive = false;
+            
+            document.getElementById('finalScore').innerText = score;
+            document.getElementById('finalCorrect').innerText = correctCount;
+            document.getElementById('finalIncorrect').innerText = incorrectCount;
+
+            const finishMsg = `Selamat, ${studentName}! Kamu telah menyelesaikan 50 soal Bahasa Indonesia dengan skor ${score}!`;
+            speakText(finishMsg);
+
+            showScreen('screenResult');
+        }
+
+        function restartQuiz() {
+            // Keep studentName intact
+            startQuizDirectly();
+        }
+
+        function showCertificate() {
+            playSfx('click');
+            document.getElementById('certName').innerText = studentName || "Siswa Teladan";
+            document.getElementById('certScore').innerText = `${score} / 1000`;
+            document.getElementById('certCorrect').innerText = `${correctCount} / 50`;
+            
+            // Format current date
+            const today = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('certDate').innerText = today.toLocaleDateString('id-ID', options);
+
+            document.getElementById('certificateModal').classList.remove('hidden');
+        }
+
+        function closeCertificate() {
+            playSfx('click');
+            document.getElementById('certificateModal').classList.add('hidden');
+        }
+
+        /* Initial Setup */
+        window.onload = function() {
+            // Focus name input on load
+            const nameInput = document.getElementById('studentName');
+            if(nameInput) nameInput.focus();
+        };
+    </script>
+</body>
+</html>
